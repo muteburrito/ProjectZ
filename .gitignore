@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Flask
+instance/
+.env
+
+# IDE/Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Dependency directories
+venv/
+env/
+
+# Flutter/Dart/Pub
+**/build/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
