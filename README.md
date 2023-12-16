@@ -18,6 +18,8 @@ To install and run Project Z locally, follow these steps:
     ```bash
     git clone https://github.com/your-username/project-z.git
     ```
+    
+**Note:** To run the backend server, it is highly recommended to use Python 3.8. You can manage your Python environment using Conda.
 
 2. Install the required dependencies:
 
