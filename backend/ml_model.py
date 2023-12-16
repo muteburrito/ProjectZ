@@ -1,8 +1,2 @@
-from simple_rnn import NumberPredictor
-
-def predict_sequence(n):
-    predictor = NumberPredictor()
-    predictor.train()
-    return predictor.predict_next_10(n)
-
-predict_sequence(4)
+def placeholder_ml_model(prompt):
+    return "This is a placeholder response. Your prompt was: {}".format(prompt)
