@@ -43,7 +43,18 @@ To install and run Project Z locally, follow these steps:
     python app.py
     ```
 
-5. Start the Flutter app:
+5. Expose your local server to the internet with ngrok:
+
+    - Navigate to the `backend` directory in the cloned repository.
+    - Run the following command:
+
+        ```bash
+        ./ngrok http 5000
+        ```
+
+    **Note:** This assumes that your backend server is running on port 5000. If it's running on a different port, replace `5000` with your server's port number. Also, if you're on Windows, you might need to run `ngrok.exe` instead of `./ngrok`.
+
+6. Start the Flutter app:
 
     - Connect your device or emulator.
     - Run the following command in the `flutter_app` directory:
