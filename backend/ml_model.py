@@ -1,2 +1,5 @@
+from web_scraper import scrape
+
 def placeholder_ml_model(prompt):
-    return "This is a placeholder response. Your prompt was: {}".format(prompt)
+    data = scrape.search(prompt)
+    return data

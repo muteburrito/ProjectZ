@@ -31,6 +31,7 @@ def handle_prompt():
     data = request.get_json()
     prompt = data.get('prompt', '')
     response = placeholder_ml_model(prompt)
+    print(len(response))
     return jsonify({'response': response}), 200
 
 if __name__ == '__main__':
