@@ -13,10 +13,10 @@ def search(query):
     for item in data["items"]:
       if item["kind"] == "customsearch#result":
         metatags = item["pagemap"]["metatags"][0]
-        filtered_result = {
+        filtered_result = { # TODO: Need to use more filters for better parsing
           "og:image": metatags.get("og:image", None),
-          "og:height": int(metatags.get("og:height", 0)),
-          "og:width": int(metatags.get("og:width", 0)),
+          # "og:height": int(metatags.get("og:height", 0)),
+          # "og:width": int(metatags.get("og:width", 0)),
           "og:title": metatags.get("og:title", ""),
           #"og:type": metatags["og:type"],
         }
@@ -25,3 +25,6 @@ def search(query):
         filtered_results.append(filtered_result)
         
     return filtered_results
+
+# TODO: Download the images and store them in a appropriate folder
+# TODO: Use the images to train the model and predict the correct image based on the prompt
