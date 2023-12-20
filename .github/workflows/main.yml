@@ -40,10 +40,10 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          if [ -d "your_repository_directory" ]; then
-            cd your_repository_directory
-            git pull origin master
+          if [ -d "ProjectZ" ]; then
             pkill -f "python backend/app.py"
+            cd ProjectZ
+            git pull origin master
             python3 backend/app.py &
           else
             git clone https://github.com/muteburrito/ProjectZ.git
