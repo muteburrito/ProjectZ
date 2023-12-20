@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
-from ml_model import placeholder_ml_model
+from flask_cors import CORS
+from backend.backend_logic import search
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def index():
@@ -30,7 +32,7 @@ def catch_all(path):
 def handle_prompt():
     data = request.get_json()
     prompt = data.get('prompt', '')
-    response = placeholder_ml_model(prompt)
+    response = search(prompt)
     print(len(response))
     return jsonify({'response': response}), 200
 

@@ -1,10 +1,10 @@
 # Project Z
 
-Project Z is an AI-based GIF and Meme finder. It utilizes in-house developed algorithms to search and retrieve the most relevant GIFs and memes based on user input.
+Project Z is an AI-based GIF and Meme finder. It utilizes in-house developed giphy module to search and retrieve the most relevant GIFs and memes based on user input.
 
 ## Features
 
-- AI-powered search: The application leverages machine learning techniques to provide accurate and personalized search results.
+- AI-powered search: The application leverages machine learning techniques to provide accurate and personalized search results. (Coming soon later next year)
 - GIF finder: Users can search for GIFs by entering keywords or phrases.
 - Meme finder: Users can discover and share popular memes from various categories.
 - User-friendly interface: The application provides a simple and intuitive interface for easy navigation and interaction.
@@ -16,7 +16,7 @@ To install and run Project Z locally, follow these steps:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/project-z.git
+    git clone https://github.com/muteburrito/ProjectZ.git
     ```
     
 **Note:** To run the backend server, it is highly recommended to use Python 3.8. You can manage your Python environment using Conda.
