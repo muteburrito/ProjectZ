@@ -1,4 +1,4 @@
-name: Python backend on github actions
+name: CI/CD Pipeline
 
 on:
   push:
@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -21,9 +20,39 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    - name: Run Tests
-      run: |
-        python -m unittest discover
     - name: Start Server
       run: |
         python backend/app.py &
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Run Tests
+      run: |
+        python -m unittest discover
+    - name: Curl Command
+      run: |
+        curl --location 'http://127.0.0.1:5000/prompt' \
+        --header 'Content-Type: application/json' \
+        --data '{
+            "prompt": "cats"
+        }'
+
+  report:
+    needs: test
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+    - name: Report
+      run: |
+        echo "Build successful!"
+    - name: Create Issue on Failure
+      uses: JasonEtco/create-an-issue@v2
+      if: failure()
+      with:
+        title: Build failed
+        body: The build failed. Please check the logs for more details.
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
