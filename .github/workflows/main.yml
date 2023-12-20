@@ -33,24 +33,20 @@ jobs:
         --data '{
             "prompt": "cats"
         }'
-    - name: SSH into EC2 and run server
-      if: success()
+    - name: SSH into EC2 and deploy
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          if [ -d "ProjectZ" ]; then
-            cd ProjectZ
-            pkill -f app.py
-            git pull
+          if [ -d "your_repository_directory" ]; then
+            cd your_repository_directory
+            git pull origin master
+            pkill -f "python backend/app.py"
+            python backend/app.py &
           else
-            git clone https://github.com/muteburrito/ProjectZ.git
-            cd ProjectZ
-            pip install -r requirements.txt
+            git clone https://github.com/your_username/your_repository.git your_repository_directory
+            cd your_repository_directory
+            python backend/app.py &
           fi
-          nohup python backend/app.py > output.log &
-          - name: Report
-          run: |
-            echo "Build successful!"
