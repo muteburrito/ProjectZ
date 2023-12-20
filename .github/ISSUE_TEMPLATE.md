@@ -1,5 +1,5 @@
 ---
-title: "Build failed"
+title: "Build_failed"
 assignees: muteburrito
 labels: bug
 ---
