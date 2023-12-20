@@ -43,10 +43,11 @@ jobs:
           if [ -d "ProjectZ" ]; then
             cd ProjectZ
             git pull origin master
-            pkill -f "python3 backend/app.py"
             nohup python3 backend/app.py > output.log &
+            disown
           else
             git clone https://github.com/muteburrito/ProjectZ.git
             cd ProjectZ
             nohup python3 backend/app.py > output.log &
+            disown
           fi
