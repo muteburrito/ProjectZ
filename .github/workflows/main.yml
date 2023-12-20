@@ -58,6 +58,5 @@ jobs:
       uses: JasonEtco/create-an-issue@v2
       if: failure()
       with:
-        title: Build failed
-        body: The build failed. Please check the logs for more details.
+        filename: .github/ISSUE_TEMPLATE.md
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
