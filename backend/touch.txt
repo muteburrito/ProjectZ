@@ -7,3 +7,4 @@ Testing
 Fixing wrong env secret~
 Fixing yml format
 Last try to fix it 
+Removed the issue creation and modified SSH to EC2

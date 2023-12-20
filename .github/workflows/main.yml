@@ -54,10 +54,3 @@ jobs:
           - name: Report
           run: |
             echo "Build successful!"
-    - name: Create Issue on Failure
-      uses: JasonEtco/create-an-issue@v2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      if: failure()
-      with:
-        filename: .github/ISSUE_TEMPLATE.md
