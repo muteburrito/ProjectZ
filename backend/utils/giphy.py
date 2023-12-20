@@ -1,6 +1,4 @@
 import requests
-import json
-from bs4 import BeautifulSoup
 
 class Giphy():
 
@@ -17,7 +15,6 @@ class Giphy():
     
     def parse_json(self):
         json_data = self.get_data()
-        print(type(json_data))
         self.embed_urls = []
         self.titles = []
         self.users = []
