@@ -5,3 +5,4 @@ fixing CI file
 Fixing the connection with EC2 instance
 Testing
 Fixing wrong env secret~
+Fixing yml format
