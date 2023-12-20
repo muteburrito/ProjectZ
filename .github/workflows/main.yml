@@ -7,7 +7,7 @@ on:
       - 'backend/**'
 
 jobs:
-  build:
+  run_and_test_backend_server:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,12 +23,6 @@ jobs:
     - name: Start Server
       run: |
         python backend/app.py &
-
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
     - name: Run Tests
       run: |
         python -m unittest discover
@@ -39,13 +33,6 @@ jobs:
         --data '{
             "prompt": "cats"
         }'
-
-  report:
-    needs: test
-    runs-on: ubuntu-latest
-    if: always()
-
-    steps:
     - name: Report
       run: |
         echo "Build successful!"
