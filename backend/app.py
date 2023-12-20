@@ -1,9 +1,17 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from backend_logic import search
+import sys
+import signal
 
 app = Flask(__name__)
 CORS(app)
+
+def handler(signum, frame):
+    print('Signal handler called with signal', signum)
+    sys.exit(0)
+
+signal.signal(signal.SIGTERM, handler)
 
 @app.route('/')
 def index():
