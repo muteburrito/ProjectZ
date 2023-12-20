@@ -33,16 +33,6 @@ jobs:
         --data '{
             "prompt": "cats"
         }'
-    - name: Report
-      run: |
-        echo "Build successful!"
-    - name: Create Issue on Failure
-      uses: JasonEtco/create-an-issue@v2
-      if: failure()
-      with:
-        title: Build failed
-        body: The build failed. Please check the logs for more details.
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: SSH into EC2 and run server
       if: success()
       uses: appleboy/ssh-action@master
@@ -61,3 +51,13 @@ jobs:
             pip install -r requirements.txt
           fi
           nohup python backend/app.py > output.log &
+          - name: Report
+          run: |
+            echo "Build successful!"
+    - name: Create Issue on Failure
+      uses: JasonEtco/create-an-issue@v2
+      if: failure()
+      with:
+        title: Build failed
+        body: The build failed. Please check the logs for more details.
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

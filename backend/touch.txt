@@ -2,3 +2,4 @@ use this file to trigger a backend update
 fixing typo
 running CI for testing backend availabilty
 fixing CI file
+Fixing the connection with EC2 instance
