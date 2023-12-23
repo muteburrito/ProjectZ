@@ -1,4 +1,5 @@
 import requests
+import json
 
 class Giphy():
 
@@ -20,7 +21,7 @@ class Giphy():
         self.users = []
 
         for item in json_data['data']:
-            embed_url = item.get('embed_url')
+            embed_url = item.get('images').get('original').get('url')
             title = item.get('title')
             user = item.get('username')
             self.embed_urls.append(embed_url)
